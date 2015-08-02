@@ -1,0 +1,81 @@
+@import './src/scss/components/functions/rems';
+
+$font: Arial, Helvetica, 'helvetica neue', sans-serif;
+
+$body-color: #fc6e52;
+$dark-grey: #372b31;
+$white-color: #ffffff;
+
+$padding: 15px;
+
+$speed: 500ms;
+$effect: ease-in-out;
+$opacity: 0.4;
+
+$prefixes: -webkit-, -moz-, -o-, -ms-, "";
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+     -moz-box-sizing: $box-model;
+          box-sizing: $box-model;
+}
+
+@mixin max-width {
+    @include rem('max-width', 53rem);
+    margin: 0 auto;
+}
+
+@mixin transition($property, $speed: $speed, $effect: $effect) {
+    @each $prefix in $prefixes {
+        #{$prefix}transition: $property $speed $effect;
+    }
+}
+
+
+//@include borderRadius(16px);
+@mixin borderRadius($size) {
+    @if length($size) == 1 {
+        @each $prefix in $prefixes {
+            @if $prefix != "-webkit-" {
+                #{$prefix}border-radius: $size;
+            }
+        }
+    } @else {
+        @if $prefix != "-webkit-" {
+            @include customBorderRadius($size);
+        }
+    }
+}
+
+//@include borderRadius(4px, 8px, 16px, 32px);
+@mixin customBorderRadius($topLeft: 0, $topRight: 0, $bottomRight: 0, $bottomLeft: 0) {
+    @each $prefix in $prefixes {
+        @if $topLeft != 0 { #{$prefix}border-top-left-radius: $topLeft; }
+        @if $topRight != 0 { #{$prefix}border-top-right-radius: $topRight; }
+        @if $bottomRight != 0 { #{$prefix}border-bottom-right-radius: $bottomRight; }
+        @if $bottomLeft != 0 { #{$prefix}border-bottom-left-radius: $bottomLeft; }
+    }
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder           {@content}
+    &::-moz-placeholder          {@content}
+    &:-ms-input-placeholder      {@content}  
+}
+
+@mixin lato-family {
+    font-family: 'Lato', $font;
+    font-weight: 300;
+}
+
+@mixin bp($point) {
+
+    @if $point == large {
+        @media (min-width: 64.000em) { @content; }
+    }
+    @else if $point == medium {
+        @media (min-width: 48.000em) { @content; }
+    }
+}

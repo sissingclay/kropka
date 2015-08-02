@@ -1,0 +1,17 @@
+.kd-social {
+
+    a {
+        @include rem(margin-right, 0.5rem);
+        color: $white-color;
+    }
+
+    .kd-social-icon {
+        color: $white-color;
+        @include rem('width', 35px);
+        height: auto;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}

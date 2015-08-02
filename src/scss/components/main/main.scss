@@ -1,0 +1,12 @@
+.kd-main {
+    @include max-width;
+    @include box-sizing(border-box);
+    @include rem('padding', 0 $padding 0 $padding);
+    text-align: center;
+    @include rem('margin-bottom', 2rem);
+
+    .kd-main-p_margin-bottom {
+        @include rem('margin-bottom', 1.4rem);
+        @include rem('line-height', 1.8rem);
+    }
+}

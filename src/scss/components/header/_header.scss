@@ -1,0 +1,6 @@
+.kd-header {
+    @include rem('padding', 85px $padding 50px $padding);
+    @include box-sizing(border-box);
+    @include max-width;
+    text-align: center;
+}

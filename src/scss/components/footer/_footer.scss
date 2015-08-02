@@ -1,0 +1,12 @@
+.kd-footer {
+    @include max-width;
+    @include box-sizing(border-box);
+    @include rem('padding', 0 $padding 0 $padding);
+    text-align: center;
+
+    .kd-footer-p_color {
+        color: $dark-grey;
+        @include rem('font-size', 1rem);
+        @include rem('line-height', 1.4rem);
+    }
+}

@@ -1,0 +1,38 @@
+extends ../extends/default.jade
+
+block title
+    title Kropka Design | User Experience Designer | User Interface Designer | UX / UI | Exeter, Devon
+
+block description
+    meta(name='description', content='I create and lead digital products from concepts stage and through to further evolution of products. User experience designer and user interface designer based in Exeter, Devon')
+
+append css
+    // build:css css/home/home.min.css
+    link(rel='stylesheet' href='css/home/home.css')
+    // endbuild
+    
+
+block main
+
+    main(role='main' class='kd-main')
+
+        p.
+            Hi, I'm Malgorzata Maryniak, an <strong>UX Designer</strong> and <strong>Senior Visual Creative</strong>
+            turning complex ideas and functionality into simple and user-friendly experiences
+            that are engaging and easy to use. I love to make beautiful and effective digital work.
+            I live and work in Exeter, Devon. Kropka is what I do.
+
+        p(class='kd-main-p_margin-bottom')
+            strong.
+                The website is coming soon. In the meantime...
+
+        a(href='/besimplebeclever', class='kd-btn').
+            see my previous work
+
+        section(class='kd-social')
+            a(href='', target='_blank')
+                img(src='/img/facebook.svg', class='kd-social-icon')
+            a(href='', target='_blank')
+                img(src='/img/google-plus.svg', class='kd-social-icon')
+            a(href='', target='_blank')
+                img(src='/img/twitter.svg', class='kd-social-icon')
