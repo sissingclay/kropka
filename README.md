@@ -15,11 +15,11 @@ npm install
 The next step is to
 
 ```
-npm build-dev
+gulp build-dev
 ```
 
 after changes have been complete. Run the following
 
 ```
-build-prod
+gulp build-prod
 ```
