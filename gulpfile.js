@@ -25,6 +25,7 @@
         del         = require('del'),
         iconfontCss = require('gulp-iconfont-css'),
         iconfont    = require('gulp-iconfont'),
+        critical    = require('critical'),
 
         knownOptions = {
             string: 'env',
@@ -139,11 +140,27 @@
             .pipe(gulp.dest('build/fonts/'));
     });
 
+    gulp.task('critical', function () {
+        critical.generateInline({
+            inline: true,
+            base: 'build/',
+            src: 'index.html',
+            dest: 'build/index.html',
+            minify: true,
+            width: 1300,
+            height: 900
+        },function(err){
+            if (err) {
+                console.log(err);
+            }
+        });
+    });
+
     gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont']);
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'iconFont'], 'usemin'
+            ['jade', 'typescript', 'sass', 'img', 'iconFont'], ['usemin'], 'critical'
         );
     });
 
